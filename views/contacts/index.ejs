@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../partials/head') %>
+  <style>
+    body {
+      background: #fff;
+    }
+
+    .blueone {
+      border-collapse: collapse;
+    }
+
+    .blueone th {
+      padding: 10px;
+      color: #168;
+      border-bottom: 3px solid #168;
+      text-align: left;
+    }
+
+    .blueone td {
+      color: #669;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .blueone tr:hover td {
+      color: #004;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+
+  <div class="contact-form">
+    <h2>설문 결과</h2>    
+
+    <table class="blueone">
+      <tr>
+        <th>/</th>
+        <th>호랑이</th>
+        <th>코끼리</th>
+      </tr>
+      <tr>
+        <td>남자</td>
+        <td><%= survey[0] %></td>
+        <td><%= survey[1] %></td>
+      </tr>
+      <tr>
+        <td>여자</td>
+        <td><%= survey[2] %></td>
+        <td><%= survey[3] %></td>
+      </tr>
+      <tr>
+        <td>
+          <h4>합계</h4>
+        </td>
+        <td><%= survey[0]+survey[2] %></td>
+        <td><%= survey[1]+survey[3] %></td>
+      </tr>
+      <tr>
+        <td>통계</td>
+        <th>
+          <% if(survey[0] > survey[1]) { %>
+          <span>남자는 호랑이를 더 좋아합니다.</span>
+          <% } else if (survey[0] < survey[1]) { %>
+          <span>남자는 코끼리를 더 좋아합니다.</span>
+          <% } else { %>
+          <span>남자는 호랑이와 코끼리 둘다 좋아합니다.</span>
+          <% } %>
+        </th>
+        <br>
+        <th>
+          <% if(survey[2] > survey[3]) { %>
+          <span>여자는 호랑이를 더 좋아합니다.</span>
+          <% } else if(survey[2] < survey[3]){ %>
+          <span>여자는 코끼리를 더 좋아합니다.</span>
+          <% } else { %>
+          <span>여자는 호랑이와 코끼리 둘다 좋아합니다.</span>
+          <% } %>
+        </th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
